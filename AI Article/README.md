@@ -1,189 +1,116 @@
-# Dead-Earth Project 🌍
 
-## OpenxAI Global AI Accelerator - ENVIRO-TRACK Submission
+# AI Article Generator ✍️
+
+## OpenxAI Global AI Accelerator - CONTENT-TRACK Submission
 
 ### Project Overview
-**Dead-Earth** is an AI-controlled 3D globe simulation that demonstrates the devastating effects of pollution and climate change on our planet. Users give natural language commands to the AI, which calculates realistic environmental impacts and controls the Earth's health in real-time.
+**AI Article Generator** is an AI-powered tool that generates high-quality articles in real-time. Users provide a topic, and the AI produces content while updating word and character counts, and storing a history of recent topics.
 
 ### 🌟 Features
-- **3D Interactive Globe**: Built with Three.js for immersive visualization
-- **AI-Controlled Simulation**: Natural language commands processed by deepseek-r1:8b
-- **Realistic Environmental Calculations**: AI calculates CO2, toxicity, temperature, and population impacts
-- **Live Environmental Metrics**:
-  - CO2 levels (ppm)
-  - Air toxicity levels
-  - Global temperature changes
-  - Population counters (humans, animals, plants)
-  - Ocean acidification
-  - Ice cap melting rates
-- **Command History**: Track all environmental actions and their impacts
-- **Educational Impact**: Visual demonstration of climate change effects
-- **Reset Functionality**: Restore Earth to healthy state
+- **Natural Language Input**: Type a topic and get AI-generated content instantly.
+- **Streaming Output**: Watch the article appear as it is generated.
+- **Word & Character Metrics**: Real-time counts displayed during generation.
+- **Recent Topics History**: Keeps track of recent topics with timestamps and response times.
+- **Example Topics**: Quick-start buttons for exploring the AI.
+- **Error Handling**: Shows warnings for missing input or failed generation.
 
 ### 🛠️ Tech Stack
 - **Frontend**: Next.js 14 with TypeScript
-- **3D Graphics**: Three.js with React Three Fiber
-- **AI Integration**: Ollama (deepseek-r1:8b model)
 - **Styling**: Tailwind CSS
 - **Icons**: Lucide React
 - **Animations**: Framer Motion
-- **Deployment**: Nix for reproducible builds
+- **AI Integration**: Ollama (or other AI backend)
 
 ### 🚀 Quick Start
 
 #### Prerequisites
-- Node.js 18+ 
-- Ollama (for AI analysis)
+- Node.js 18+
+- AI backend (e.g., Ollama)
 - Git
 
 #### Installation
 
-1. **Install Dependencies**
-   ```bash
-   cd demo-app-ENVIRO-TRACK
-   npm install
-   ```
+1. **Clone Repository**
+```bash
+git clone <your-repo-url>
+cd ai-article-generator
+```
 
-2. **Start Ollama (Optional)**
-   ```bash
-   # Install Ollama if you haven't already
-   curl -fsSL https://ollama.ai/install.sh | sh
-   
-   # Pull the deepseek-r1:8b model
-   ollama pull deepseek-r1:8b
-   ```
+2. **Install Dependencies**
+```bash
+npm install
+```
 
 3. **Start Development Server**
-   ```bash
-   npm run dev
-   ```
+```bash
+npm run dev
+```
 
-4. **Open Browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
+4. **Open in Browser**
+Navigate to [http://localhost:3000](http://localhost:3000)
 
 ### 🎮 How to Use
-
-#### Natural Language Commands
-Instead of clicking buttons, type natural language commands like:
-- **"Add 1 million V8 trucks to the world"**
-- **"Build 1000 coal power plants"**
-- **"Cut down the Amazon rainforest"**
-- **"Release 50 million tons of CO2"**
-- **"Start a global nuclear war"**
-- **"Build 10,000 factories in China"**
-
-#### AI Analysis Process
-1. **Command Input**: Type your environmental action
-2. **AI Calculation**: deepseek-r1:8b analyzes the impact
-3. **Real-time Effects**: Watch the globe change color and metrics update
-4. **Population Changes**: See human, animal, and plant populations affected
-5. **Command History**: Track all actions and their consequences
-
-#### Real-time Metrics
-Watch as these metrics change in real-time:
-- **CO₂ Levels**: Current atmospheric CO2 concentration
-- **Air Toxicity**: Pollution levels affecting air quality
-- **Global Temperature**: Average Earth temperature
-- **Population Counts**: Humans, animals, and plants
-- **Ocean pH**: Acidity levels affecting marine life
-- **Ice Cap Melting**: Percentage of polar ice melted
+1. Enter a topic in the input field.
+2. Click **Generate Article**.
+3. Watch the article appear in real-time.
+4. Check word and character counts.
+5. Review previous topics in the **Recent Topics** section.
+6. Click example topics for quick testing.
 
 ### 🤖 AI Integration
-
-The project uses **Ollama** with the **deepseek-r1:8b** model to provide intelligent environmental impact analysis. The AI:
-
-1. **Parses Commands**: Understands natural language environmental actions
-2. **Calculates Effects**: Determines realistic impacts on all metrics
-3. **Controls Simulation**: Directly affects the 3D globe and metrics
-4. **Provides Analysis**: Explains the environmental consequences
-
-The AI considers:
-- CO2 emissions and atmospheric effects
-- Air pollution and toxicity
-- Temperature changes and global warming
-- Population impacts (health, mortality, extinction)
-- Ocean acidification
-- Ice cap melting
-- Overall pollution levels
+The AI:
+- Parses user input.
+- Generates content in real-time.
+- Streams content to the UI.
+- Tracks generation metrics and history.
 
 ### 🎨 Customization
-
-#### Adding New Command Types
-1. Modify the prompt in `app/api/process-command/route.ts`
-2. Adjust effect calculations and validation
-3. Update the UI to handle new response formats
-
-#### Modifying Visual Effects
-- Edit `components/Globe.tsx` for 3D changes
-- Modify `components/MetricsPanel.tsx` for UI updates
-- Update `app/globals.css` for styling changes
-
-#### AI Analysis Customization
-- Modify the prompt in `app/api/process-command/route.ts`
-- Change the model in `ollama-model.txt`
-- Adjust effect validation and ranges
+- **UI & Features**: Modify `ArticleGenerator.tsx`.
+- **Styling**: Update `globals.css` or `tailwind.config.js`.
+- **AI Model**: Change the endpoint in `/api/process-command`.
 
 ### 📊 Educational Impact
-
-This project demonstrates:
-- **Cause and Effect**: How human actions affect multiple environmental systems
-- **Interconnected Systems**: Climate, population, and environment relationships
-- **Visual Learning**: Abstract concepts made tangible through 3D visualization
-- **Immediate Feedback**: Real-time consequences of environmental actions
-- **AI Insights**: Intelligent analysis of complex environmental impacts
-- **Natural Language**: Intuitive interaction with environmental simulation
+- Demonstrates AI-assisted writing.
+- Shows real-time streaming and metrics.
+- Offers insights into AI-generated content.
 
 ### 🔧 Development
 
 #### Project Structure
 ```
-demo-app-ENVIRO-TRACK/
-├── app/                    # Next.js app directory
-│   ├── api/               # API routes
-│   │   └── process-command/ # AI command processing
-│   ├── globals.css        # Global styles
-│   ├── layout.tsx         # Root layout
-│   └── page.tsx           # Main page
-├── components/            # React components
-│   ├── Globe.tsx          # 3D Earth component
-│   └── MetricsPanel.tsx   # Metrics display
-├── nix/                   # Nix configuration
-│   ├── package.nix        # Package definition
-│   └── nixos-module.nix   # NixOS module
-├── flake.nix             # Nix flake
-├── ollama-model.txt      # AI model specification
-└── package.json          # Dependencies
+ai-article-generator/
+├── app/
+│   ├── api/
+│   │   └── process-command/ # AI API route
+│   ├── globals.css          # Global styles
+│   ├── layout.tsx           # Root layout
+│   └── page.tsx             # Main page
+├── components/
+│   └── ArticleGenerator.tsx # Main AI component
+├── package.json
+├── tailwind.config.js
+└── tsconfig.json
 ```
 
 #### Available Scripts
-- `npm run dev`: Start development server
-- `npm run build`: Build for production
-- `npm run start`: Start production server
-- `npm run lint`: Run ESLint
-
-#### Nix Commands
-- `nix build`: Build the project
-- `nix run`: Run the project with Ollama
-- `nix develop`: Enter development environment
-
-### 🌍 Environmental Impact
-
-This project aims to raise awareness about climate change through AI-powered interactive visualization, making complex environmental concepts tangible and impactful through natural language interaction.
+- `npm run dev` — Start development server
+- `npm run build` — Build production version
+- `npm run start` — Start production server
+- `npm run lint` — Run ESLint
+- `npm run typecheck` — Run TypeScript type checking
 
 ### 🤝 Contributing
-
 1. Fork the repository
 2. Create a feature branch
-3. Make your changes
+3. Make changes
 4. Test thoroughly
 5. Submit a pull request
 
 ### 📄 License
-
-This project is part of the OpenxAI Global AI Accelerator.
+Part of the OpenxAI Global AI Accelerator.
 
 ---
 
-*"The best time to plant a tree was 20 years ago. The second best time is now."*
+*"The best way to improve your writing is to start writing."*
 
-**🌍 Dead-Earth Project - AI-Controlled Climate Change Simulation** 
+**✍️ AI Article Generator - Real-time AI Writing Assistant**
